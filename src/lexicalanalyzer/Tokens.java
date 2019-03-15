@@ -20,8 +20,13 @@ public class Tokens {
 	final Token elseToken = new Token("ELSE", "else");
 	final Token enumToken = new Token("ENUM", "enum");
 	final Token externToken = new Token("EXTERN", "extern");
-	final Token floatToken = new Token("FLOAT", "[-+]?[0-9]+\\.?[0-9]+");
+	final Token intToken = new Token("INT", "[+-]?[0-9]+");
+	final Token floatToken = new Token("FLOAT", "[-+]?[0-9]*\\.?[0-9]+");
+	final Token semiToken = new Token("SEMICOLON", ";");
+
 	final Token forToken = new Token("FOR", "for");
+	final Token multiCommentToken = new Token("MULTI_COMMENT","(?s)\\/\\*(.*)\\*\\/");
+	final Token bitWiseOrToken = new Token("BITWISE_OR","\\s\\|\\|\\s");
 
 	
 	public Tokens() {
@@ -35,6 +40,9 @@ public class Tokens {
 		tokens.add(boolToken);
 		tokens.add(caseToken);
 		tokens.add(floatToken);
-
+		tokens.add(intToken);
+		tokens.add(semiToken);
+		tokens.add(multiCommentToken);
+		tokens.add(bitWiseOrToken);
 	}
 }
