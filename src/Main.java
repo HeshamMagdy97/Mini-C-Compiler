@@ -1,8 +1,8 @@
 import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.ArrayList;
 
 import lexicalanalyzer.Token;
+import lexicalanalyzer.Tokens;
 import reader.FileReader;
 import reader.Ireader;
 
@@ -10,12 +10,23 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Token t = new Token("email", "EMAIL", "(\\w+)@(\\w+\\.)(\\w+)(\\.\\w+)*");
 		Ireader reader = new FileReader();	
-		
+		Tokens tokens = new Tokens();
 		try {
-			System.out.println(reader.
-					readFile("Data/code.txt"));
+			String s = reader.readFile("Data/code.txt");
+			String[] lexems = reader.getLexemes(s);
+			ArrayList<Token> result = new ArrayList<>();
+			for(String x : lexems) {
+				for(Token token: tokens.tokens)
+					if(token.validate(x)) {
+						token.setValue(x);
+						result.add(token);
+					}
+				System.out.println(x);
+			}
+			for(Token w:result) {
+				System.out.println(w.toString());
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
