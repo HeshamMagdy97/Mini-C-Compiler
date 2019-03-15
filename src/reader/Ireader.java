@@ -1,0 +1,7 @@
+package reader;
+
+import java.io.IOException;
+
+public interface Ireader {
+	public String readFile(String filePath) throws IOException ;
+}
