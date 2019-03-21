@@ -1,4 +1,5 @@
 package lexicalanalyzer;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -7,26 +8,29 @@ public class Token {
 	private String value;
 	private String className;
 	private String regex;
+	private Pattern pattern;
 	
 	public Token(String className, String regex) {
 		this.className = className;
 		this.regex = regex;
+		this.pattern = Pattern.compile(regex);
 	}
 	public boolean validate(String lexicalUnit) {
 		return Pattern.matches(regex, lexicalUnit);
 	}
-	public boolean validate_2(String code) {
-		Pattern pattern = Pattern.compile(regex);
+	public ArrayList<Token> validate_2(String code) {
+		
 		Matcher matcher = pattern.matcher(code);
-		int index = -1;
+		ArrayList<Token> found = new ArrayList<>();
 		while (matcher.find())
 		{
-			index = matcher.start();
-			System.out.println("Found a match: " + matcher.group());
-			//System.out.println("Start position: " + matcher.start());
-			//System.out.println("End position: " + matcher.end());
+			String value = matcher.group();
+			Token x = new Token(className, regex);
+			x.setValue(value);
+			found.add(x);
 		}
-		return index != -1;
+		//System.out.println(found);
+		return found;
 	}
 	public String getValue() {
 		return value;

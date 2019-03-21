@@ -10,47 +10,44 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Ireader reader = new FileReader();	
+		Ireader reader = new FileReader();
 		Tokens tokens = new Tokens();
+		String s = "";
 		try {
-			String s = reader.readFile("Data/code.txt");
-			ArrayList<Token> result = new ArrayList<>();
-			System.out.println(s);
-			for(Token token: tokens.tokens)
-				if(token.validate_2(s)) {
-					//token.setValue(x);
-					result.add(token);
-					System.out.println(token.toString());
-				}
-			/*String[] lexems = reader.getLexemes(s);
-			
-			ArrayList<Token> result = new ArrayList<>();
-			for(String x : lexems) {
-				int list_size = result.size();
-				for(Token token: tokens.tokens)
-					if(token.validate(x)) {
-						token.setValue(x);
-						result.add(token);
-						System.out.println(token.toString());
-						break;
-					}
-				if(list_size == result.size()){
-					System.err.println("Undifined word " + x);
-					break;
-				}
-				System.out.println(x);
-			}*/
-			System.out.println("------------");
-
-			for(Token w:result) {
-				System.out.println(w.toString());
-			}
+			s = reader.readFile("Data/code.txt");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//System.out.println( t.validate(""));
-		
+		ArrayList<Token> result = new ArrayList<>(), found = new ArrayList<>();
+		for (Token token : tokens.tokens) {
+			found = token.validate_2(s);
+			if (!found.isEmpty()) {
+				System.out.println(found);
+				result.addAll(found);
+			}
+		}
+
+		System.out.println("------------");
+		System.out.println();
+		ArrayList<Token> resultI = new ArrayList<>();
+		String[] matches = s.split("\\s+");
+		for (String x : matches) {
+			int arrSize = resultI.size();
+			for (Token w : result) {
+				if(w.getValue().contains(x))
+					if(!resultI.contains(w))
+						resultI.add(w);
+					else
+						arrSize++;
+			}
+			if(arrSize == resultI.size()) {
+				System.err.println(x);
+				break;
+			}
+		}
+		System.out.println(resultI);
+
+
 	}
 
 }

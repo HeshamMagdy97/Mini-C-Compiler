@@ -20,8 +20,8 @@ public class Tokens {
 	final Token elseToken = new Token("ELSE", "else");
 	final Token enumToken = new Token("ENUM", "enum");
 	final Token externToken = new Token("EXTERN", "extern");
-	final Token intToken = new Token("INT", "[+-]?[0-9]+");
-	final Token floatToken = new Token("FLOAT", "[-+]?[0-9]*\\.?[0-9]+");
+	final Token intToken = new Token("INT", "[+-]?[0-9]+(?!\\.)[0-9]+(?<!\\.)[0-9]+");
+	final Token floatToken = new Token("FLOAT", "[-+]?[0-9]*\\.[0-9]+");
 	final Token semiToken = new Token("SEMICOLON", ";");
 	final Token forToken = new Token("FOR", "for");
 	final Token multiCommentToken = new Token("MULTI_COMMENT","(?s)\\/\\*(.*)\\*\\/");
@@ -44,20 +44,20 @@ public class Tokens {
 	final Token volatileToken = new Token("VOLATILE", "volatile");
     final Token whileToken=new Token("WHILE","while");
     final Token leftcurlyToken=new Token("LEFT_CURLY_B","}");
-    final Token rightcurlyToken=new Token("RIGHT_CURLY_B","{") ;
-    final Token rightsqureToken=new Token("RIGHT_SQURE_B","[");
-    final Token leftsqureToken=new Token("LEFT_SQURE_B","]");
-    final Token rightroundToken=new Token("RIGHT_ROUND_B","(");
-    final Token leftroundToken=new Token("LEFT_ROUND_B",")");
-    final Token commaToken = new Token("COMMA", ",");
-    final Token dotToken = new Token("DOT", ".");
+    final Token rightcurlyToken=new Token("RIGHT_CURLY_B","\\{") ;
+    final Token rightsqureToken=new Token("RIGHT_SQURE_B","\\[");
+    final Token leftsqureToken=new Token("LEFT_SQURE_B","\\]");
+    final Token rightroundToken=new Token("RIGHT_ROUND_B","\\(");
+    final Token leftroundToken=new Token("LEFT_ROUND_B","\\)");
+    final Token commaToken = new Token("COMMA", "\\,");
+    final Token dotToken = new Token("DOT", "\\.");
     final Token notToken = new Token("NOT", "!");
     final Token assignOperatorToken = new Token("ASSIGN_OPERATOR", "=");
     final Token preprocessorToken = new Token("PREPROCESSOR", "#");
-    final Token backwordSlashToken = new Token("BACKWARD_SLASH", "\\");
+    final Token backwordSlashToken = new Token("BACKWARD_SLASH", "\\\\");
     final Token minusToken = new Token("MINUS", "-");
-    final Token plusToken = new Token("PLUS", "+");
-    final Token asterickToken = new Token("ASTERICK", "*");
+    final Token plusToken = new Token("PLUS", "\\+");
+    final Token asterickToken = new Token("ASTERICK", "\\*");
     final Token divideToken = new Token("DIVIDE", "/");
     final Token modToken = new Token("MOD", "%");
     final Token lessthanToken = new Token("LESSTHAN", "<");
@@ -67,7 +67,7 @@ public class Tokens {
     final Token equalToken = new Token("EQUAL", "==");
     final Token notEqualToken = new Token("NOT_EQUAL","!=");
     final Token andToken = new Token("AND", "&&");
-    final Token orToken = new Token("OR", "||");
+    final Token orToken = new Token("OR", "||"); 
     
 	
 	public Tokens() {
