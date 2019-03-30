@@ -1,7 +1,7 @@
 package lexicalanalyzer;
 
 import java.util.ArrayList;
-
+//75
 public class Tokens {
 	public ArrayList<Token> tokens;
 	final Token autoToken = new Token("AUTO", "auto");
@@ -26,7 +26,6 @@ public class Tokens {
 	final Token forToken = new Token("FOR", "for");
 	final Token multiCommentToken = new Token("MULTI_COMMENT","(?s)\\/\\*(.*)\\*\\/");
 	final Token bitWiseOrToken = new Token("BITWISE_OR", "\\s\\|\\|\\s");
-	
 	final Token gotoToken = new Token("GOTO", "goto");
 	final Token ifToken = new Token("IF", "for");
 	final Token longToken = new Token("LONG", "long");
@@ -67,23 +66,89 @@ public class Tokens {
     final Token equalToken = new Token("EQUAL", "==");
     final Token notEqualToken = new Token("NOT_EQUAL","!=");
     final Token andToken = new Token("AND", "&&");
-    final Token orToken = new Token("OR", "||"); 
+    final Token orToken = new Token("OR", "||");
+    final Token singleCommentToken = new Token("SINGLECOMMENT", "//");
+    final Token bitwiseNotToken = new Token("BITWISE_NOT", "~");
+    final Token bitwiseAndToken = new Token("BITWISE_AND", "&");
+    final Token bitWiseXorToken = new Token("BITWISE_XOR", "\\|");
+    final Token leftShiftToken = new Token("LEFT_SHIFT", ">>");
+    final Token rightShiftToken = new Token("RIGHT_SHIFT", "<<");
+    
+    
+    
     
 	
 	public Tokens() {
 		tokens = new ArrayList<Token>();
-		//USE JAVA REFACTORING AND ADD ATTRIBUTES DINAMICALYY
-		tokens.add(autoToken);
-		tokens.add(newToken);
-		tokens.add(trueToken);
-		tokens.add(falseToken);
-		tokens.add(breakToken);
+		//USE JAVA REFACTORING AND ADD ATTRIBUTES DINAMICALYY		
+		tokens.add(bitWiseOrToken);
 		tokens.add(boolToken);
 		tokens.add(caseToken);
+		tokens.add(breakToken);
+		tokens.add(autoToken);
+		tokens.add(andToken);
+		tokens.add(assignOperatorToken);
+		tokens.add(asterickToken);
+		tokens.add(backwordSlashToken);
+		tokens.add(bitWiseXorToken);
+		tokens.add(bitwiseAndToken);
+		tokens.add(bitwiseNotToken);
+		tokens.add(charToken);
+		tokens.add(commaToken);
+		tokens.add(constToken);
+		tokens.add(continueToken);
+		tokens.add(defaultToken);
+		tokens.add(divideToken);
+		tokens.add(doToken);
+		tokens.add(dotToken);
+		tokens.add(doubletToken);
+		tokens.add(elseToken);
+		tokens.add(enumToken);
+		tokens.add(equalToken);
+		tokens.add(externToken);
+		tokens.add(forToken);
+		tokens.add(falseToken);
 		tokens.add(floatToken);
+		tokens.add(gotoToken);
+		tokens.add(greatEqToken);
+		tokens.add(greaterthanToken);
+		tokens.add(ifToken);
+		tokens.add(leftShiftToken);
 		tokens.add(intToken);
-		tokens.add(semiToken);
+		tokens.add(leftcurlyToken);
+		tokens.add(leftroundToken);
+		tokens.add(leftsqureToken);
+		tokens.add(lessEqToken);
+		tokens.add(lessthanToken);
+		tokens.add(longToken);
+		tokens.add(minusToken);
+		tokens.add(modToken);
 		tokens.add(multiCommentToken);
-		tokens.add(bitWiseOrToken);
+		tokens.add(notEqualToken);		
+		tokens.add(newToken);
+		tokens.add(notToken);
+		tokens.add(orToken);
+		tokens.add(plusToken);
+		tokens.add(preprocessorToken);
+		tokens.add(registerToken);
+		tokens.add(returnToken);
+		tokens.add(rightShiftToken);
+		tokens.add(rightcurlyToken);
+		tokens.add(rightroundToken);
+		tokens.add(rightsqureToken);
+		tokens.add(semiToken);
+		tokens.add(shortToken);
+		tokens.add(signedToken);
+		tokens.add(singleCommentToken);
+		tokens.add(sizeOfToken);
+		tokens.add(staticToken);
+		tokens.add(structToken);
+		tokens.add(switchToken);
+		tokens.add(typedefToken);		
+		tokens.add(trueToken);
+		tokens.add(unionToken);
+		tokens.add(voidToken);
+		tokens.add(volatileToken);
+		tokens.add(whileToken);		
 	}
 }
