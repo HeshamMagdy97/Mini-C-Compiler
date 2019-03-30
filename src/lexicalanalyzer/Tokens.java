@@ -73,6 +73,11 @@ public class Tokens {
     final Token bitWiseXorToken = new Token("BITWISE_XOR", "\\|");
     final Token leftShiftToken = new Token("LEFT_SHIFT", ">>");
     final Token rightShiftToken = new Token("RIGHT_SHIFT", "<<");
+    final Token eofToken = new Token("EOF", "\\z|\\Z|\\$");
+    final Token idToken = new Token("ID", "");
+    final Token charLiteralToken = new Token("CHAR_LITERAL", "'[a-zA-z]'{1}");
+    final Token stringLiteralToken = new Token("STRING_LITERAL", "\"[a-zA-Z]+\"");
+    
     
     
     
@@ -150,5 +155,9 @@ public class Tokens {
 		tokens.add(voidToken);
 		tokens.add(volatileToken);
 		tokens.add(whileToken);		
+		tokens.add(eofToken);
+		tokens.add(stringLiteralToken);
+		tokens.add(charLiteralToken);
+		tokens.add(idToken);
 	}
 }
