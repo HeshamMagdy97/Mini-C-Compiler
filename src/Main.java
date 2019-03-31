@@ -1,10 +1,11 @@
 import java.io.IOException;
 import java.util.ArrayList;
 
+import files.FileReader;
+import files.Ireader;
+import files.Writer;
 import lexicalanalyzer.Token;
 import lexicalanalyzer.Tokens;
-import reader.FileReader;
-import reader.Ireader;
 
 public class Main {
 
@@ -34,19 +35,39 @@ public class Main {
 		for (String x : matches) {
 			int arrSize = resultI.size();
 			for (Token w : result) {
-				if(w.getValue().contains(x))
-					if(!resultI.contains(w))
+				if (w.getValue().contains(x)) {
+					if (w.getClassName().equals("ID")) {
+						int match = 0;
+						for (int i = 0; i < resultI.size(); i++) {
+							if (resultI.get(i).getValue().contains(w.getValue())) {
+								match++;
+								System.out.println(x);
+							} 
+						}
+						if(match==0)
+							resultI.add(w);
+					}
+					else if (!resultI.contains(w)) {
 						resultI.add(w);
-					else
+					}
+
+					else {
 						arrSize++;
+					}
+				}
 			}
-			if(arrSize == resultI.size()) {
+			if (arrSize == resultI.size()) {
 				System.err.println(x);
 				break;
 			}
 		}
 		System.out.println(resultI);
-
+		try {
+			Writer.writeTokens(resultI, "Data/output.txt");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 

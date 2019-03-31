@@ -1,0 +1,18 @@
+<NEW> :new
+<AUTO> :auto
+<TRUE> :true
+<FLOAT> :+111.2222
+<INTEGRAL_LITERAL> :100
+<INTEGRAL_LITERAL> :-900
+<SEMICOLON> :;
+<SEMICOLON> :;
+<MULTI_COMMENT> :/*sjsjhs 
+
+jhsjdh*/
+<ID> :String
+<ID> :zeinab
+<BITWISE_OR> : || 
+<SINGLE_COMMENT> :// sss s s s
+<STRING_LITERAL> :"ss"
+<ID> :k
+<INT> :int
