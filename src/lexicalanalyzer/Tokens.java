@@ -82,7 +82,6 @@ public class Tokens {
 	final Token intliToken = new Token("INT_LITERAL", "\\b\\d+\\b");
 	final Token floatToken = new Token("FLOAT", "float");
 	final Token floatLiteral = new Token("FLOAT", "\\d\\d*\\.\\d\\d*");
-
 	final Token semiToken = new Token("SEMICOLON", ";");
 	final Token forToken = new Token("FOR", "\\bfor\\b");
 	final Token multiCommentToken = new Token("MULTI_COMMENT", "(?s)\\/\\*(.*)\\*\\/");
@@ -188,9 +187,7 @@ public class Tokens {
 		tokens.add(minusToken);
 		tokens.add(modToken);
 		tokens.add(multiCommentToken);
-		tokens.add(bitWiseOrToken);
 		tokens.add(singleCommentToken);
-		// tokens.add(intLiteralToken);
 		tokens.add(notEqualToken);
 		tokens.add(newToken);
 		tokens.add(notToken);
