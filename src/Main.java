@@ -31,6 +31,9 @@ public class Main {
 		}
 		ArrayList<Token> resultI = new ArrayList<>();
 		String[] matches = s.split("\\s+");
+		/*for(int i=0;i<matches.length;i++) {
+			matches[i]=matches[i].split("");
+		}*/
 		for (String x : matches) {
 			int arrSize = resultI.size();
 			for (Token w : result) {

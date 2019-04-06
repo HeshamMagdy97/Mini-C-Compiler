@@ -1,1 +1,33 @@
 <BOOL> :bool
+<ID> :isPowerOfTwo
+<INT> :int
+<SINGLE_COMMENT> :// First x in the below expression is
+<SINGLE_COMMENT> :// for the case when x is 0
+<INT_LITERAL> :0
+<INT_LITERAL> :1
+<CASE> :case
+<AND> :&&
+<BITWISE_AND> :&
+<BITWISE_AND> :&
+<BITWISE_AND> :&
+<DIVIDE> :/
+<DIVIDE> :/
+<DIVIDE> :/
+<DIVIDE> :/
+<FOR> :for
+<IF> :for
+<LEFT_CURLY_B> :}
+<LEFT_ROUND_B> :)
+<LEFT_ROUND_B> :)
+<LEFT_ROUND_B> :)
+<LEFT_ROUND_B> :)
+<MINUS> :-
+<NOT> :!
+<RETURN> :return
+<RIGHT_CURLY_B> :{
+<RIGHT_ROUND_B> :(
+<RIGHT_ROUND_B> :(
+<RIGHT_ROUND_B> :(
+<RIGHT_ROUND_B> :(
+<EOF> :
+<SEMICOLON> :;

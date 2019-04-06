@@ -87,9 +87,9 @@ public class Tokens {
 	final Token forToken = new Token("FOR", "\\bfor\\b");
 	final Token multiCommentToken = new Token("MULTI_COMMENT", "(?s)\\/\\*(.*)\\*\\/");
 	final Token bitWiseOrToken = new Token("BITWISE_OR", "\\|\\|");
-	final Token gotoToken = new Token("GOTO", "goto");
-	final Token ifToken = new Token("IF", "for");
-	final Token longToken = new Token("LONG", "long");
+	final Token gotoToken = new Token("GOTO", "\\bgoto\\b");
+	final Token ifToken = new Token("IF", "\\bfor\\b");
+	final Token longToken = new Token("LONG", "\\blong\\b");
 	final Token registerToken = new Token("REGISTER", "\\bregister\\b");
 	final Token returnToken = new Token("RETURN", "\\breturn\\b");
 	final Token shortToken = new Token("SHORT", "\\bshort\\b");
@@ -128,7 +128,7 @@ public class Tokens {
 	final Token notEqualToken = new Token("NOT_EQUAL", "!=");
 	final Token andToken = new Token("AND", "&&");
 	final Token orToken = new Token("OR", "\\|\\|");
-	final Token bitwiseNotToken = new Token("BITWISE_NOT", "~");
+	final Token bitwiseNotToken = new Token("BITWISE_NOT", "\\~");
 	final Token bitwiseAndToken = new Token("BITWISE_AND", "&");
 	final Token bitWiseXorToken = new Token("BITWISE_XOR", "\\s\\|\\s");
 	final Token leftShiftToken = new Token("LEFT_SHIFT", ">>");

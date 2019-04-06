@@ -9,11 +9,13 @@ public class Token {
 	private String className;
 	private String regex;
 	private Pattern pattern;
+	private int startpos;
 	
 	public Token(String className, String regex) {
 		this.className = className;
 		this.regex = regex;
 		this.pattern = Pattern.compile(regex);
+		this.startpos = -1;
 	}
 	public boolean validate(String lexicalUnit) {
 		return Pattern.matches(regex, lexicalUnit);
@@ -27,6 +29,7 @@ public class Token {
 			String value = matcher.group();
 			Token x = new Token(className, regex);
 			x.setValue(value);
+			x.startpos = matcher.start();
 			found.add(x);
 		}
 		//System.out.println(found);
