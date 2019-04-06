@@ -86,7 +86,7 @@ public class Tokens {
 	final Token semiToken = new Token("SEMICOLON", ";");
 	final Token forToken = new Token("FOR", "\\bfor\\b");
 	final Token multiCommentToken = new Token("MULTI_COMMENT", "(?s)\\/\\*(.*)\\*\\/");
-	final Token bitWiseOrToken = new Token("BITWISE_OR", "\\s\\|\\|\\s");
+	final Token bitWiseOrToken = new Token("BITWISE_OR", "\\|\\|");
 	final Token gotoToken = new Token("GOTO", "goto");
 	final Token ifToken = new Token("IF", "for");
 	final Token longToken = new Token("LONG", "long");
@@ -113,15 +113,15 @@ public class Tokens {
 	final Token dotToken = new Token("DOT", "\\.");
 	final Token notToken = new Token("NOT", "!");
 	final Token assignOperatorToken = new Token("ASSIGN_OPERATOR", "=");
-	final Token preprocessorToken = new Token("PREPROCESSOR", "#");
+	final Token preprocessorToken = new Token("PREPROCESSOR", "\\#");
 	final Token backwordSlashToken = new Token("BACKWARD_SLASH", "\\\\");
 	final Token minusToken = new Token("MINUS", "-");
 	final Token plusToken = new Token("PLUS", "\\+");
 	final Token asterickToken = new Token("ASTERICK", "\\*");
-	final Token divideToken = new Token("DIVIDE", "/");
+	final Token divideToken = new Token("DIVIDE", "\\/");
 	final Token modToken = new Token("MOD", "%");
-	final Token lessthanToken = new Token("LESSTHAN", "<");
-	final Token greaterthanToken = new Token("GREATERTHAN", ">");
+	final Token lessthanToken = new Token("LESSTHAN", "\\<");
+	final Token greaterthanToken = new Token("GREATERTHAN", "\\>");
 	final Token lessEqToken = new Token("LESS_EQ", "<=");
 	final Token greatEqToken = new Token("GREAT_EQ", ">=");
 	final Token equalToken = new Token("EQUAL", "==");
@@ -133,10 +133,10 @@ public class Tokens {
 	final Token bitWiseXorToken = new Token("BITWISE_XOR", "\\s\\|\\s");
 	final Token leftShiftToken = new Token("LEFT_SHIFT", ">>");
 	final Token rightShiftToken = new Token("RIGHT_SHIFT", "<<");
-	final Token eofToken = new Token("EOF", "\\z|\\Z|\\$");
+	final Token eofToken = new Token("EOF", "\\z|\\Z");
 	final Token charLiteralToken = new Token("CHAR_LITERAL", "'[a-zA-z]'{1}");
 	final Token stringLiteralToken = new Token("STRING_LITERAL", "\"[a-zA-Z]+\"");
-	final Token idToken = new Token("ID", "[A-Za-z][A-Za-z0-9_]*");
+	final Token idToken = new Token("ID", "\\b[_a-zA-Z]\\w*\\b");
 	final Token intToken = new Token("INT", "int");
 	final Token singleCommentToken = new Token("SINGLE_COMMENT", "\\/\\/.*");
 
