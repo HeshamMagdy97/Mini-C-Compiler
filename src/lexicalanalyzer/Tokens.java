@@ -144,6 +144,7 @@ public class Tokens {
 		// USE JAVA REFACTORING AND ADD ATTRIBUTES DINAMICALYY
 		tokens.add(intliToken);
 		tokens.add(bitWiseOrToken);
+		
 		tokens.add(boolToken);
 		tokens.add(caseToken);
 		tokens.add(breakToken);
