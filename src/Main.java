@@ -8,7 +8,9 @@ import lexicalanalyzer.Token;
 import lexicalanalyzer.Tokens;
 
 public class Main {
-
+	public static void toknize() {
+		
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Ireader reader = new FileReader();
@@ -27,9 +29,6 @@ public class Main {
 				result.addAll(found);
 			}
 		}
-
-		System.out.println("------------");
-		System.out.println();
 		ArrayList<Token> resultI = new ArrayList<>();
 		String[] matches = s.split("\\s+");
 		for (String x : matches) {
@@ -41,7 +40,6 @@ public class Main {
 						for (int i = 0; i < resultI.size(); i++) {
 							if (resultI.get(i).getValue().contains(w.getValue())) {
 								match++;
-								System.out.println(x);
 							} 
 						}
 						if(match==0)

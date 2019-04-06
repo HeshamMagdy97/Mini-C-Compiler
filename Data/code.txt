@@ -1,13 +1,1 @@
-new auto true +111.2222 100 -900 ;
-/*sjsjhs 
-
-jhsjdh*/
-String zeinab
- || 
- |
- 
- // sss s s s
- k
- "ss"
- int x;
- 
+shortw x = 10
