@@ -1,4 +1,1 @@
-<ID> :shortw
-<ID> :x
-<ASSIGN_OPERATOR> :=
-<INT_LITERAL> :10
+<BOOL> :bool
