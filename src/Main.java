@@ -1,5 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import files.FileReader;
 import files.Ireader;
@@ -9,8 +11,9 @@ import lexicalanalyzer.Tokens;
 
 public class Main {
 	public static void toknize() {
-		
+
 	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Ireader reader = new FileReader();
@@ -25,48 +28,41 @@ public class Main {
 		for (Token token : tokens.tokens) {
 			found = token.validate_2(s);
 			if (!found.isEmpty()) {
-				System.out.println(found);
+				// System.out.println(found);
 				result.addAll(found);
 			}
 		}
-		ArrayList<Token> resultI = new ArrayList<>();
-		String[] matches = s.split("\\s+");
-		/*for(int i=0;i<matches.length;i++) {
-			matches[i]=matches[i].split("");
-		}*/
-		for (String x : matches) {
-			int arrSize = resultI.size();
-			for (Token w : result) {
-				if (w.getValue().contains(x)) {
-					if (w.getClassName().equals("ID")) {
-						int match = 0;
-						for (int i = 0; i < resultI.size(); i++) {
-							if (resultI.get(i).getValue().contains(w.getValue())) {
-								match++;
-							} 
-						}
-						if(match==0)
-							resultI.add(w);
-					}
-					else if (!resultI.contains(w)) {
-						resultI.add(w);
-					}
+		System.out.println(result);
+		Collections.sort(result, Comparator.comparing(Token::getStartpos));
+		System.out.println(result);
 
-					else {
-						arrSize++;
+		for (int i = 0; i < result.size(); i++) {
+			for (int j = i + 1; j < result.size(); j++) {
+				if (result.get(i).getStartpos() == result.get(j).getStartpos()) {
+					if (result.get(j).getClassName().equals("ID")) {
+						result.remove(j);
 					}
 				}
 			}
-			if (arrSize == resultI.size()) {
-				System.err.println(x);
-				break;
+		}
+
+		for (int i = 0; i < result.size(); i++) {
+			for (int j = i + 1; j < result.size(); j++) {
+
+				if (result.get(i).getStartpos() <= result.get(j).getStartpos()
+						&& result.get(i).getEndpos() >= result.get(j).getEndpos()) {
+					System.out.println(result.get(j).getValue());
+					result.remove(j);
+					j--;
+				}
 			}
 		}
-		System.out.println(resultI);
+
+		
+		System.out.println(result);
 		try {
-			Writer.writeTokens(resultI, "Data/output.txt");
+			Writer.writeTokens(result, "Data/output.txt");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

@@ -10,12 +10,14 @@ public class Token {
 	private String regex;
 	private Pattern pattern;
 	private int startpos;
+	private int endpos;
 	
 	public Token(String className, String regex) {
 		this.className = className;
 		this.regex = regex;
 		this.pattern = Pattern.compile(regex);
 		this.startpos = -1;
+		this.endpos = -1;
 	}
 	public boolean validate(String lexicalUnit) {
 		return Pattern.matches(regex, lexicalUnit);
@@ -30,6 +32,8 @@ public class Token {
 			Token x = new Token(className, regex);
 			x.setValue(value);
 			x.startpos = matcher.start();
+			x.endpos = matcher.end();
+			
 			found.add(x);
 		}
 		//System.out.println(found);
@@ -48,9 +52,21 @@ public class Token {
 		this.className = className;
 	}
 	
+	public int getStartpos() {
+		return startpos;
+	}
+	public void setStartpos(int startpos) {
+		this.startpos = startpos;
+	}
+	public int getEndpos() {
+		return endpos;
+	}
+	public void setEndpos(int endpos) {
+		this.endpos = endpos;
+	}
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "<"+this.className+"> :"+this.value;
+		return "<"+this.className+"> :"+this.value ;
 	}
 }

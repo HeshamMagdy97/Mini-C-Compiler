@@ -1,1 +1,5 @@
-<BOOL> :bool
+<INT> :int
+<ID> :value
+<ASSIGN_OPERATOR> :=
+<INT_LITERAL> :5
+<SEMICOLON> :;
