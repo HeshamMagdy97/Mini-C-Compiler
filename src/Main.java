@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import errors.ErrorHandler;
 import files.FileReader;
 import files.Ireader;
 import files.Writer;
@@ -58,6 +59,8 @@ public class Main {
 		}
 
 		System.out.println(result);
+		ErrorHandler errorhandler = new ErrorHandler(s,result);
+		System.out.println(errorhandler.checkErrors());
 		try {
 			Writer.writeTokens(result, "Data/output.txt");
 		} catch (IOException e) {
