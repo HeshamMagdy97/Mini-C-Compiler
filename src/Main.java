@@ -60,7 +60,7 @@ public class Main {
 
 		System.out.println(result);
 		ErrorHandler errorhandler = new ErrorHandler(s,result);
-		System.out.println(errorhandler.checkErrors());
+		errorhandler.printError();
 		try {
 			Writer.writeTokens(result, "Data/output.txt");
 		} catch (IOException e) {
