@@ -1,5 +1,2 @@
-<INT> :int
-<ID> :value
-<ASSIGN_OPERATOR> :=
-<INT_LITERAL> :5
-<SEMICOLON> :;
+<ID> :x3
+<FLOAT> :3.5
