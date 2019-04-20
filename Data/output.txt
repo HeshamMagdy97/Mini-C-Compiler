@@ -1,8 +1,36 @@
 <INT> :int
-<ID> :value
+<ID> :x
 <ASSIGN_OPERATOR> :=
 <INT_LITERAL> :5
-<SEMICOLON> :;
-<DIVIDE> :/
+<PLUS> :+
+<INT_LITERAL> :5
 <ASTERICK> :*
+<INT_LITERAL> :9
+<MINUS> :-
+<INT_LITERAL> :4
+<SEMICOLON> :;
+<FLOAT> :float
+<ASSIGN_OPERATOR> :=
+<SEMICOLON> :;
+<ID> :x3
+<DOT> :.
+<INT_LITERAL> :4
+<INT> :int
+<SEMICOLON> :;
+<CHAR_LITERAL> :'\\'
+<String> :string
+<ID> :x
+<ASSIGN_OPERATOR> :=
+<STRING_LITERAL> :"int x = 1"
+<SEMICOLON> :;
+<MULTI_COMMENT> :/*
+if (num < 1)
+  num = 0
+  //sss
+*/
+<SINGLE_COMMENT> :// "q"/**/
+<INT> :int
+<ID> :x
+<ASSIGN_OPERATOR> :=
+<STRING_LITERAL> :"/*Hello*"
 <EOF> :

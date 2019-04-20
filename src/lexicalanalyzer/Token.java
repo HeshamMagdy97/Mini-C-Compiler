@@ -4,6 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
+
 public class Token {
 	private String value;
 	private String className;
@@ -33,7 +34,6 @@ public class Token {
 			x.setValue(value);
 			x.startpos = matcher.start();
 			x.endpos = matcher.end();
-			
 			found.add(x);
 		}
 		//System.out.println(found);

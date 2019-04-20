@@ -12,6 +12,7 @@ public class Tokens {
 	final Token breakToken = new Token("BREAK", "\\bbreak\\b");
 	final Token boolToken = new Token("BOOL", "\\bbool\\b");
 	final Token caseToken = new Token("CASE", "\\bcase\\b");
+	final Token stringToken = new Token("String", "\\bstring\\b");
 	final Token charToken = new Token("CHAR", "\\bchar\\b");
 	final Token constToken = new Token("CONST", "\\bconst\\b");
 	final Token continueToken = new Token("CONTINUE", "\\bcontinue\\b");
@@ -26,7 +27,7 @@ public class Tokens {
 	final Token floatLiteral = new Token("FLOAT", "\\d\\d*\\.\\d\\d*");
 	final Token semiToken = new Token("SEMICOLON", ";");
 	final Token forToken = new Token("FOR", "\\bfor\\b");
-	final Token multiCommentToken = new Token("MULTI_COMMENT", "(?s)\\/\\*(.*)\\*\\/");
+	final Token multiCommentToken = new Token("MULTI_COMMENT", "(/\\*)((\\r\\n|\\n|.)*?)(\\*/)");
 	final Token bitWiseOrToken = new Token("BITWISE_OR", "\\|\\|");
 	final Token gotoToken = new Token("GOTO", "\\bgoto\\b");
 	final Token ifToken = new Token("IF", "\\bfor\\b");
@@ -75,8 +76,8 @@ public class Tokens {
 	final Token leftShiftToken = new Token("LEFT_SHIFT", ">>");
 	final Token rightShiftToken = new Token("RIGHT_SHIFT", "<<");
 	final Token eofToken = new Token("EOF", "\\z|\\Z");
-	final Token charLiteralToken = new Token("CHAR_LITERAL", "'[a-zA-z]'{1}");
-	final Token stringLiteralToken = new Token("STRING_LITERAL", "\"[a-zA-Z]+\"");
+	final Token charLiteralToken = new Token("CHAR_LITERAL", "'([^'\\\\\"]|(\\\\(a|b|e|f|n|r|t|v|\\\\|\\'|\\\"|\\?)))?'");
+	final Token stringLiteralToken = new Token("STRING_LITERAL", "\".*?\"");
 	final Token idToken = new Token("ID", "\\b[_a-zA-Z]\\w*\\b");
 	final Token intToken = new Token("INT", "int");
 	final Token singleCommentToken = new Token("SINGLE_COMMENT", "\\/\\/.*");
@@ -84,6 +85,8 @@ public class Tokens {
 	public Tokens() {
 		tokens = new ArrayList<Token>();
 		// USE JAVA REFACTORING AND ADD ATTRIBUTES DINAMICALYY
+		tokens.add(dotToken);
+		tokens.add(stringToken);
 		tokens.add(intliToken);
 		tokens.add(bitWiseOrToken);
 		tokens.add(boolToken);
@@ -102,9 +105,7 @@ public class Tokens {
 		tokens.add(constToken);
 		tokens.add(continueToken);
 		tokens.add(defaultToken);
-		tokens.add(divideToken);
 		tokens.add(doToken);
-		tokens.add(dotToken);
 		tokens.add(doubletToken);
 		tokens.add(elseToken);
 		tokens.add(enumToken);
@@ -113,7 +114,6 @@ public class Tokens {
 		tokens.add(forToken);
 		tokens.add(falseToken);
 		tokens.add(floatToken);
-		tokens.add(floatLiteral);
 		tokens.add(gotoToken);
 		tokens.add(greatEqToken);
 		tokens.add(greaterthanToken);
@@ -130,6 +130,7 @@ public class Tokens {
 		tokens.add(modToken);
 		tokens.add(multiCommentToken);
 		tokens.add(singleCommentToken);
+		tokens.add(divideToken);
 		tokens.add(notEqualToken);
 		tokens.add(newToken);
 		tokens.add(notToken);
@@ -158,6 +159,7 @@ public class Tokens {
 		tokens.add(stringLiteralToken);
 		tokens.add(charLiteralToken);
 		tokens.add(semiToken);
+		tokens.add(floatLiteral);
 		tokens.add(idToken);
 	}
 }

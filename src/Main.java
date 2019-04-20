@@ -1,3 +1,4 @@
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -28,14 +29,12 @@ public class Main {
 		for (Token token : tokens.tokens) {
 			found = token.validate_2(s);
 			if (!found.isEmpty()) {
-				// System.out.println(found);
 				result.addAll(found);
+				//System.out.println(found);
 			}
 		}
-		System.out.println(result);
+		//System.out.println(result);
 		Collections.sort(result, Comparator.comparing(Token::getStartpos));
-		System.out.println(result);
-
 		for (int i = 0; i < result.size(); i++) {
 			for (int j = i + 1; j < result.size(); j++) {
 				if (result.get(i).getStartpos() == result.get(j).getStartpos()) {
@@ -51,14 +50,21 @@ public class Main {
 
 				if (result.get(i).getStartpos() <= result.get(j).getStartpos()
 						&& result.get(i).getEndpos() >= result.get(j).getEndpos()) {
-					System.out.println(result.get(j).getValue());
+					if(result.get(j).getClassName().equals("DOT")&&
+					   result.get(j-1).getClassName().equals("FLOAT")&&
+					   result.get(j+1).getClassName().equals("INT_LITERAL")) {
+						result.remove(j-1);
+						j--;
+						continue;
+
+					}						
 					result.remove(j);
 					j--;
 				}
 			}
 		}
 
-		System.out.println(result);
+	//	System.out.println(result);
 		ErrorHandler errorhandler = new ErrorHandler(s,result);
 		errorhandler.printError();
 		try {

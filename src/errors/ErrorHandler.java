@@ -3,8 +3,6 @@ package errors;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import com.sun.tools.javac.util.StringUtils;
-
 import lexicalanalyzer.Token;
 
 public class ErrorHandler {
@@ -33,8 +31,8 @@ public class ErrorHandler {
 		ArrayList<String> compiledCodeList = new ArrayList<String>(Arrays.asList(compiledCode.split("")));
 		
 		String resultStr = "";
-		int loopSize = code.length() < compiledCode.length() ? code.length() : compiledCode.length();
-		for(int i=0; i<loopSize; i++) {
+		//int loopSize = code.length() < compiledCode.length() ? code.length() : compiledCode.length();		
+		for(int i=0; i<codeList.size(); i++) {
 			if(!codeList.get(i).equals(compiledCodeList.get(i))) {
 				resultStr += codeList.get(i);
 				codeList.remove(i);

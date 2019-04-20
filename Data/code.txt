@@ -1,3 +1,13 @@
-@
-int value = 5;
+int x = 5+5*9-4;
+float 5y = 6h;
+x3.4
+int 3FFF;
+'\\'
+string x = "int x = 1";
 /*
+if (num < 1)
+  num = 0
+  //sss
+*/
+// "q"/**/
+int x = "/*Hello*"
