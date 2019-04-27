@@ -86,9 +86,6 @@ public class Parser {
 	}
 
 	private ParamList parseParamList() {
-		/**
-		 * hakml el function dia w a4of el donia feha eh
-		 */
 		Param param = parseParam();
 		if(param != null ) {
 			Params params = parseParams();
@@ -104,8 +101,57 @@ public class Parser {
 		return null;
 	}
 
-	private TypeSpec parseTypeSpec() {
+	private Params parseParams() {
 		Token t =queue.peek();
+		String value = t.getValue();
+		if(value.equals(",")) {
+			queue.poll();
+			Param param = parseParam();
+			if(param != null) {
+				Params params = parseParams();
+				if(params != null) {
+					return new Params(t, param, params);
+				}
+			}
+		}
+		System.out.println(", is missing");
+		return null;
+	}
+
+	private Param parseParam() {
+		TypeSpec typeSpec = parseTypeSpec();
+		if(typeSpec != null) {
+			Ident ident  = parseIdent();
+			if(ident != null) {
+				ParamsEnd paramsEnd = parseParamsEnd();
+				if(paramsEnd != null) {
+					return new Param(typeSpec, ident, paramsEnd);
+				}
+			}
+		}
+		return null;
+	}
+
+	private ParamsEnd parseParamsEnd() {
+		Token t =queue.peek();
+		String className = t.getClassName();
+		if (className.equals("RIGHT_SQURE_B")) {
+			queue.poll();
+			Token t1 =queue.peek();
+			className = t1.getClassName();
+			if (className.equals("RIGHT_SQURE_B")) {
+				queue.poll();
+				return new ParamsEnd(t,t1);
+			}
+			System.out.println("missing ]");
+			return null;
+		}
+		System.out.println("syntax error semicolon not found");
+		return null;	
+	}
+
+	private TypeSpec parseTypeSpec() {
+		Token t = queue.peek();
 		String value = t.getValue();
 		if(value.equals("void") || value.equals("bool")
 		   || value.equals("int") || value.equals("float")) {
