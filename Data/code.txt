@@ -1,6 +1,6 @@
-int x = 5+5*9-4;
+int x = 5;+5*9-4;
 float 5y = 6h;
-x3.4
+x3.
 int 3FFF;
 '\\'
 string x = "int x = 1";

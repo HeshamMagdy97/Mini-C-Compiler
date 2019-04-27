@@ -69,6 +69,7 @@ public class Main {
 		errorhandler.printError();
 		try {
 			Writer.writeTokens(result, "Data/output.txt");
+			reader.getLexemes("Data/output.txt");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

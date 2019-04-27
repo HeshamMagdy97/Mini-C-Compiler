@@ -1,11 +1,16 @@
 package lexicalanalyzer;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
 
-public class Token {
+public class Token implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String value;
 	private String className;
 	private String regex;
@@ -19,6 +24,9 @@ public class Token {
 		this.pattern = Pattern.compile(regex);
 		this.startpos = -1;
 		this.endpos = -1;
+	}
+	public Token() {
+		// TODO Auto-generated constructor stub
 	}
 	public boolean validate(String lexicalUnit) {
 		return Pattern.matches(regex, lexicalUnit);
@@ -67,6 +75,6 @@ public class Token {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "<"+this.className+"> :"+this.value ;
+		return this.className +" "+ this.value ;
 	}
 }
